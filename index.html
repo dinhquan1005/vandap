@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vấn Đáp Kiếm Khí Trường Thành</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>VẤN ĐÁP TÔNG MÔN</h1>
+      <h1>KIẾM KHÍ TRƯỜNG THÀNH</h1>
+    </header>
+    <main class="container">
+      <div class="input-group">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Nhập câu hỏi để tìm đáp án"
+        />
+        <button onclick="filterQuestions()">Tìm kiếm</button>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Câu hỏi</th>
+            <th>Đáp án</th>
+          </tr>
+        </thead>
+        <tbody id="questionTable"></tbody>
+      </table>
+    </main>
+    <script src="js.js"></script>
+  </body>
+</html>
