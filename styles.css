@@ -28,16 +28,19 @@ header {
 header::before {
   content: "KIẾM KHÍ TRƯỜNG THÀNH";
   position: absolute;
-  top: 50%; /* Đặt chữ ở giữa phần header */
+  top: 60%;
   left: 50%;
-  transform: translate(-50%, -50%); /* Căn giữa theo cả chiều ngang và dọc */
-  font-size: 4rem; /* Giảm kích thước chữ cho cân đối */
-  font-weight: bold; /* Tăng độ đậm để dễ nhìn hơn */
-  color: rgba(228, 48, 48, 0.15); /* Màu sắc nhẹ hơn để tạo cảm giác tinh tế */
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  font-weight: bold;
+  color: rgba(228, 48, 48, 0.15);
   z-index: 0;
-  white-space: nowrap; /* Đảm bảo chữ không bị xuống dòng */
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Thêm bóng mờ tạo chiều sâu */
-  pointer-events: none; /* Không ảnh hưởng đến các thao tác chuột */
+  text-align: center;
+  word-wrap: break-word;
+  word-break: break-word;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 90%;
+  pointer-events: none;
 }
 
 h1 {
