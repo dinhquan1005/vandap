@@ -280,7 +280,7 @@ const questions = [
     question: "Mẹ của Mạnh Xuyên trong Thương Nguyên Đồ tên là gì ?",
     answer: "Bạch Niệm Vân",
   },
-  { id: 55, question: "của Tần Trần là ai ?", answer: "Tần Nguyệt Trì" },
+  { id: 55, question: "Mẹ của Tần Trần là ai ?", answer: "Tần Nguyệt Trì" },
   {
     id: 56,
     question: "Mẹ của Thạch Hạo trong Thế Giới Hoàn Mỹ tên là gì ?",
