@@ -93,7 +93,7 @@ const questions = [
   },
   {
     id: 19,
-    question: "Diêm Linh Cơ là nhân vật trong phim hoạt hình tung quốc nào ?",
+    question: "Diễm Linh Cơ là nhân vật trong phim hoạt hình tung quốc nào ?",
     answer: " Thiên Hành Cửu Ca",
   },
   {
