@@ -13,6 +13,10 @@ body {
   background-position: center;
   background-attachment: fixed;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 h1 {
@@ -45,6 +49,8 @@ h1 {
   max-height: calc(
     100vh - 40px
   ); /* Đảm bảo container không vượt quá chiều cao của viewport */
+  justify-content: flex-start; /* Các phần tử con sẽ căn chỉnh từ trên xuống */
+  height: 100%;
 }
 
 .mode {
@@ -91,10 +97,12 @@ td {
   font-family: cursive;
   font-weight: bold;
   font-size: 20px;
-  background: linear-gradient(to left, #abdcff, #0396ff);
+  /* background: linear-gradient(to left, #abdcff, #0396ff);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  border: 1px solid #ddd;
+  -webkit-text-fill-color: transparent; */
+  color: #000;
+  border: 1px solid #000000;
+  background-color: #fff;
 }
 
 td {
@@ -128,22 +136,23 @@ td {
 }
 
 #mode {
-  position: absolute;
-  bottom: 0; /* Đặt phần tử ở cuối container */
-  left: 50%; /* Đặt phần tử ở giữa chiều ngang */
-  transform: translateX(-50%); /* Căn giữa chính xác */
+  /* position: absolute; Đặt phần tử ở vị trí tuyệt đối trong container */
+  bottom: 0; /* Đặt phần tử ở dưới cùng */
+  left: 50%; /* Căn giữa theo chiều ngang */
   box-sizing: border-box;
   border-width: 2px;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   font-weight: bold;
+  text-align: center;
   font-family: cursive;
   color: rgb(239 68 68 / var(--tw-text-opacity, 1));
-  text-align: center;
   background: url(./img/phaohoa.gif);
   background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 20px;
+  width: 100%; /* Đảm bảo phần tử sẽ giãn ra khi cần */
+  padding: 10px 0; /* Đảm bảo có khoảng cách trên dưới cho phần tử */
 }
 
 .dao {
