@@ -3,46 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vấn Đáp Kiếm Khí Trường Thành</title>
+    <title>Kho Dữ Liệu</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
   </head>
   <body>
-    <!-- <header>
-      <h1>VẤN ĐÁP TÔNG MÔN</h1>
-      <h1>KIẾM KHÍ TRƯỜNG THÀNH</h1>
-    </header> -->
-    <main class="container">
-      <img class="gif" src="./img/giphy.gif" />
-      <img class="gif1" src="./img/giphy.gif" />
-      <img class="dao" src="./img/dao.gif" />
-      <img class="dao1" src="./img/dao.gif" />
-      <img class="ngu-qua" src="./img/ngu-qua.gif" />
-      <div class="mode">VẤN ĐÁP</div>
 
-      <div class="input-group">
-        <input type="text" id="searchInput" placeholder="Nhập để tìm kiếm" />
+    <canvas id="matrix-canvas"></canvas>
+    <div class="cursor-glow"></div>
+    
+    <main class="container">
+      <div class="container-content">
+        <div class="mode hover-sparkle">VẤN ĐÁP</div>
+
+        <div class="input-group">
+          <input type="text" id="searchInput" placeholder="Nhập để tìm kiếm..." />
+        </div>
+
+        <div id="loading-spinner" class="spinner-hidden">
+          <div class="spinner"></div>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <tbody id="questionTable"></tbody>
+          </table>
+        </div>
+
+        <p id="footer-text" class="hover-sparkle">KIẾM KHÍ TRƯỜNG THÀNH</p>
       </div>
-      <table>
-        <tbody id="questionTable"></tbody>
-      </table>
-      <p id="mode">KIẾM KHÍ TRƯỜNG THÀNH</p>
     </main>
+
     <script src="js.js"></script>
-    <img
-      id="caudoitest1"
-      src="//hstatic.net/716/1000033716/10/2015/12-31/caudoitet1.png"
-    />
-    <img
-      id="caudoitest2"
-      src="//hstatic.net/716/1000033716/10/2015/12-31/caudoitet2.png"
-    />
-    <script
-      type="text/javascript"
-      src="https://web.nvnstatic.net/js/events/newyear.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="http://webquangnam.com/jsShare/hoa-mai-roi.js"
-    ></script>
   </body>
 </html>

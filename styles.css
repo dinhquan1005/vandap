@@ -1,192 +1,249 @@
-html,
-body {
+html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden; /* Cho phép cuộn khi cần thiết */
+  font-family: 'Roboto', sans-serif;
+  cursor: none;
 }
 
 body {
-  font-family: "Poppins", Arial, sans-serif;
-  background: linear-gradient(to right, #be93c5, #7bc6cc);
-  background-size: cover;
-  background-position: center;
+  background: #0f0c29;
   background-attachment: fixed;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f0f0f0;
+  position: relative;
 }
 
-h1 {
-  font-size: 36px;
-  margin-top: 20px;
-  font-family: cursive;
-  font-weight: bold;
-  background: linear-gradient(to right, #cc95c0, #dbd4b4, #7aa1d2);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 2px 2px 4px #000;
+.cursor-glow {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 242, 255, 0.5) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: width 0.2s, height 0.2s;
+  z-index: 9999;
 }
 
+#matrix-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* --- Hiệu ứng 1: Viền điện chạy cho CONTAINER --- */
 .container {
   max-width: 1200px;
-  width: 60%;
-  min-height: 80%;
+  width: 70%;
   margin: 20px auto;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(
-    to right,
-    rgba(122, 161, 210, 0.7),
-    rgba(219, 212, 180, 0.7),
-    rgba(204, 149, 192, 0.7)
-  );
+  padding: 3px;
+  border-radius: 12px;
   position: relative;
-  overflow-y: auto; /* Cho phép cuộn dọc khi nội dung vượt quá */
-  max-height: calc(
-    100vh - 40px
-  ); /* Đảm bảo container không vượt quá chiều cao của viewport */
+  /* Đặt chiều cao tối đa cho container */
+  max-height: calc(100vh - 40px);
+  z-index: 2;
+  overflow: hidden;
+  display: flex; /* Thêm flex để content co giãn */
 }
 
-.mode {
-  font-size: 35px;
-  font-family: Cursive;
-  font-weight: bold;
-  background: url(./img/phaohoa.gif);
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+.container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  z-index: 1;
+  background: conic-gradient(
+    transparent,
+    rgba(0, 242, 255, 1),
+    transparent 30%
+  );
+  animation: border-animate 4s linear infinite;
 }
 
-.input-group {
-  margin-bottom: 20px;
+@keyframes border-animate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
-input[type="text"] {
-  width: 50%;
-  padding: 10px;
-  margin: 5px;
-  font-size: 16px;
-  border: none;
-  border-radius: 2px;
-  border: 2px solid #96fbc4;
-  background: linear-gradient(to right, #ee9ca7, #ffdde1);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease, border 0.3s ease;
+/* SỬA LỖI CUỘN TRANG */
+.container-content {
+  position: relative;
+  z-index: 2;
+  width: 100%; /* Đảm bảo content chiếm toàn bộ chiều rộng */
+  overflow-y: auto; /* Đây là nơi thanh cuộn sẽ xuất hiện */
+  padding: 30px;
+  border-radius: 10px;
+  background-color: #1a1a2e;
 }
 
-input[type="text"]:hover {
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  border: 2px solid #ff86a1;
+/* --- Hiệu ứng 2: Viền tỏa sáng cho BẢNG --- */
+.table-wrapper {
+  margin: 20px 0;
+  border-radius: 5px;
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 8px rgba(253, 216, 53, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(253, 216, 53, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 8px rgba(253, 216, 53, 0.3);
+  }
 }
 
 table {
-  border-collapse: collapse;
   width: 100%;
-  margin: 20px 0;
+  border-collapse: collapse;
+  background-color: #1a1a2e;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
-th,
-td {
-  padding: 10px;
+.mode, #footer-text {
+  font-weight: normal;
   text-align: center;
-  font-family: cursive;
-  font-weight: bold;
+  font-family: 'Lobster', cursive;
+  letter-spacing: 1px;
+  text-transform: none;
+  color: #00f2ff;
+  text-shadow: 
+    0 0 5px #00f2ff,
+    0 0 10px #00f2ff,
+    0 0 20px #00f2ff,
+    0 0 40px #0073ff;
+  transition: all 0.3s ease;
+}
+
+.hover-sparkle:hover {
+  text-shadow: 
+    0 0 10px #00f2ff,
+    0 0 25px #00f2ff,
+    0 0 50px #00f2ff,
+    0 0 80px #0073ff,
+    0 0 90px #0073ff;
+  transform: scale(1.02);
+}
+
+.mode {
+  font-size: 42px;
+  margin-bottom: 25px;
+}
+
+#footer-text {
   font-size: 20px;
-  background: linear-gradient(to left, #abdcff, #0396ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  border: 1px solid #ddd;
+  margin-top: 30px;
+  opacity: 0.8;
+}
+
+.input-group {
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+input[type="text"] {
+  width: 60%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid rgba(0, 242, 255, 0.5);
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f0f0f0;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+input[type="text"]:hover {
+  border-color: rgba(0, 242, 255, 0.8);
+  box-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+}
+
+input[type="text"]:focus {
+  outline: none;
+  box-shadow: 0 0 15px rgba(0, 242, 255, 0.7);
+  border-color: rgba(0, 242, 255, 1);
 }
 
 td {
-  vertical-align: top;
+  padding: 15px;
+  text-align: left;
+  font-size: 16px;
+  background-color: transparent;
+  font-weight: 400;
+  border: 1px solid rgba(0, 242, 255, 0.3);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.gif,
-.gif1 {
-  width: 16%;
-  position: absolute;
+tr:hover td {
+  background-color: rgba(0, 242, 255, 0.1);
+  cursor: pointer;
 }
 
-.gif {
-  top: 0;
-  right: 25%;
+td:last-child {
+  font-weight: 700;
+  color: #fdd835;
+  text-align: right;
 }
 
-.gif1 {
-  transform: rotateY(180deg);
-  object-fit: cover;
-}
-
-.gif1 {
-  position: absolute;
-  top: 0;
-  left: 25%;
-}
-
-.ngu-qua {
-  width: 50%;
-}
-
-#mode {
-  position: absolute;
-  bottom: 0; /* Đặt phần tử ở cuối container */
-  left: 50%; /* Đặt phần tử ở giữa chiều ngang */
-  transform: translateX(-50%); /* Căn giữa chính xác */
-  box-sizing: border-box;
-  border-width: 2px;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-  font-family: cursive;
-  color: rgb(239 68 68 / var(--tw-text-opacity, 1));
-  text-align: center;
-  background: url(./img/phaohoa.gif);
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 20px;
-}
-
-.dao {
-  top: 0;
-  position: absolute;
-  right: 0;
-  width: 25%;
+#loading-spinner {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
-.dao1 {
-  top: 0;
-  position: absolute;
-  left: 0;
-  width: 25%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+.spinner {
+  border: 4px solid rgba(0, 242, 255, 0.3);
+  border-top: 4px solid #00f2ff;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
 }
 
-.dao1 {
-  transform: rotateY(180deg);
-  object-fit: cover;
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-#caudoitest1,
-#caudoitest2 {
-  position: fixed;
-  z-index: 999;
-  max-width: 100%;
-  height: auto;
+.spinner-hidden {
+  display: none !important;
 }
 
-#caudoitest1 {
-  top: 0;
-  left: 0%;
-  min-width: 10%;
-}
-
-#caudoitest2 {
-  top: 0;
-  right: 0%;
-  min-width: 10%;
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+    padding: 2px;
+  }
+  .container-content {
+    padding: 20px;
+  }
+  .mode {
+    font-size: 32px;
+  }
+  #footer-text {
+    font-size: 18px;
+  }
+  input[type="text"] {
+    width: 90%;
+  }
+  td {
+    padding: 10px 5px;
+    font-size: 14px;
+    word-break: break-word;
+    hyphens: auto;
+  }
 }
