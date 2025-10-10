@@ -326,12 +326,6 @@ document.getElementById('pasteBtn').addEventListener('click', async () => {
       try {
         const text = await navigator.clipboard.readText();
         input.value = text;
-        filterQuestions(); // Tự động tìm kiếm sau khi dán
+        filterQuestions();
       } catch (err) {
-        // Không làm gì — vẫn giữ focus để người dùng dán thủ công
-        // (xảy ra trên một số trình duyệt không cho phép đọc clipboard)
-      }
-    }
-    // Nếu không có clipboard API (vd: trình duyệt cũ hoặc iOS),
-    // thì chỉ cần focus — người dùng sẽ thấy tùy chọn "Dán" trên điện thoại
   });
