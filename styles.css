@@ -247,3 +247,48 @@ td:last-child {
     hyphens: auto;
   }
 }
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.quick-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.quick-buttons button {
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(0, 242, 255, 0.6);
+  background: rgba(0, 0, 0, 0.5);
+  color: #00f2ff;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.25s ease;
+}
+
+.quick-buttons button:hover {
+  background: rgba(0, 242, 255, 0.2);
+  box-shadow: 0 0 10px rgba(0, 242, 255, 0.6);
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .quick-buttons {
+    gap: 8px;
+  }
+  .quick-buttons button {
+    width: 34px;
+    height: 34px;
+    font-size: 14px;
+  }
+}
