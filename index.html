@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vấn Đáp</title>
+    <title>Kho Dữ Liệu</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,6 +20,10 @@
 
         <div class="input-group">
           <input type="text" id="searchInput" placeholder="Nhập để tìm kiếm..." />
+          <div class="quick-buttons">
+            <button id="pasteBtn" title="Dán từ clipboard">📋</button>
+            <button id="clearBtn" title="Xóa nội dung">✖</button>
+          </div>
         </div>
 
         <div id="loading-spinner" class="spinner-hidden">
