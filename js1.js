@@ -1319,6 +1319,36 @@ const questions = [
       "Khôi lỗi Tiêu Viêm Đấu《Phá Thương Khung》dùng thân thể của Địa Ma Lão Quỷ tạo thành",
     answer: "Thiên Yêu Khôi",
   },
+  {
+    "id": 224,
+    "question": "Đội hình Sử Lai Khắc Thất Quái trong 《Đấu La Đại Lục》 có tổng cộng bao nhiêu thành viên?",
+    "answer": "7"
+  },
+  {
+    "id": 225,
+    "question": "Trong 《Kiếm Lai》, khi Man Châu Động Thiên đứng trước nguy cơ bị hủy diệt, ai đã đứng ra bảo vệ người dân trong trấn?",
+    "answer": "Tề Tĩnh Xuân"
+  },
+  {
+    "id": 226,
+    "question": "Môn phái đầu tiên Vương Lâm gia nhập trong 《Tiên Nghịch》 là gì?",
+    "answer": "Hằng Nhạc Phái"
+  },
+  {
+    "id": 227,
+    "question": "Thiên hỏa đầu tiên Vân Thanh Nham thu phục khi trở về trong 《Tiên Đế Trở Về》 là gì?",
+    "answer": "Thanh Liên Địa Tâm Hỏa"
+  },
+  {
+    "id": 228,
+    "question": "Tự của Tư Mã Ý trong 《Phượng Hoàng Niết Bàn》 là gì?",
+    "answer": "Trọng Đạt"
+  },
+  {
+    "id": 229,
+    "question": "Vân Thanh Nham trong 《Tiên Đế Trở Về》 đã thu phục hung thú nào?",
+    "answer": "Hỗn Độn Thú"
+  },
 ];
 
 for (const q of questions) {
